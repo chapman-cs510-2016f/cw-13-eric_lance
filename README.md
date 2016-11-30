@@ -37,7 +37,9 @@ Complete the following exercises, saving your solutions in the indicated files.
 
 Analyze in this section what you found useful about this assignment in your own words. Include any lingering questions or comments that you may have.
 
-**CHANGEME**
+Templates are very useful constructs, allowing you to create a data-type indpendent structure/object that then can be adpated to any data type given to it.  This is *so* much better than having to duplicate that data structure over and over for each different data type in C.
+Getting practice with overloading operators is good.
+The BLAS library is pretty phenomenal.  I understand it much better now after having played with the template Matrix Class.  Seems like a really good tool for solving linear systems.
 
 ## Honor Pledge
 
