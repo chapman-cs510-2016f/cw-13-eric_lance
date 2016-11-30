@@ -16,12 +16,29 @@ int main() {
     Matrix<long double> mat3 = mat1 + mat2;
   
     // Print out the third matrix as a text array
-    for (int i=0; i<mat3.get_rows(); i++) {
-        for (int j=0; j<mat3.get_cols(); j++) {
+    std::cout << "Using direct access of the matrix to print the summed contents" << std::endl;
+    for (unsigned int i=0; i<mat3.get_rows(); i++) {
+        for (unsigned int j=0; j<mat3.get_cols(); j++) {
             std::cout << mat3(i,j) << "\t";
         }
         std::cout << std::endl;
     }
+
+    // Define a fourth matrix as the product of the first two
+    Matrix<long double> mat4 = mat1 * mat2;
+  
+    //  print out the fourth matrix 
+    std::cout << std::endl;
+    std::cout << "Using the matrix's native print method to print the multiplied contents" << std::endl;
+    mat4.print();
+  
+    // Define a fifth matrix as a scalar added to the fourth
+    Matrix<long double> mat5 = mat4 + 17;
+  
+    //  print out the fourth matrix 
+    std::cout << std::endl;
+    std::cout << "Using the matrix's native print method to print the multiplied contents" << std::endl;
+    mat5.print();
   
     return 0;
 }

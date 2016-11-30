@@ -3,6 +3,7 @@
 #define CW13_MATRIX_CPP_
 
 // include the header declarations
+#include <iostream>
 #include "matrix.h"
 
 //*************
@@ -131,6 +132,59 @@ Matrix<T> Matrix<T>::operator+(const Matrix<T>& rhs) {
     }
   
     return result;
+}
+
+// Addition of a scalar to a matrix
+template<typename T>
+Matrix<T> Matrix<T>::operator+(const T& rhs)
+{
+    // Create new matrix to store result, initialize to zero
+    Matrix result(rows, cols, 0.0);
+  
+    // Add the scalar to the matrix element-by-element
+    for (unsigned int i=0; i<rows; i++)
+    {
+        for (unsigned int j=0; j<cols; j++)
+        {
+            result(i,j) = this->mat[i][j] + rhs;
+        }
+    }
+  
+    return result;
+}
+
+// Multiplication of two matrices
+template<typename T>
+Matrix<T> Matrix<T>::operator*(const Matrix<T>& rhs)
+{
+    // Create new matrix to store result, initialize to zero
+    Matrix result(rows, cols, 0.0);
+  
+    // Add each matrix element-by-element
+    for (unsigned int i=0; i<rows; i++)
+    {
+        for (unsigned int j=0; j<cols; j++) 
+        {
+            result(i,j) = this->mat[i][j] * rhs(i,j);
+        }
+    }
+  
+    return result;
+}
+
+// Print Matrix
+template<typename T>
+void Matrix<T>::print() const 
+{
+    // Print out the matrix as a text array
+    for (unsigned int i=0; i<this->get_rows(); i++)
+    {
+        for (unsigned int j=0; j<this->get_cols(); j++)
+        {
+            std::cout << this->mat[i][j] << "\t";
+        }
+        std::cout << std::endl;
+    }
 }
 
 #endif // CW13_MATRIX_CPP_
