@@ -13,7 +13,7 @@ private:
     long double ymax;
     unsigned int ylen;
     matrix<std::complex<long double> > plane;
-    std::complex<long double> f();
+    std::complex<long double> (*f)(std::complex<long double>);
 public:
     CPlane();
     CPlane(
