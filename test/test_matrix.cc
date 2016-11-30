@@ -41,6 +41,7 @@ int main() {
     mat5.print();
   
     //  write matrix 5 out to a .csv file
+    std::cout << std::endl << "Write mat5 to a csv file" << std::endl;
     mat5.save( "mat5.csv" );
 
     return 0;
