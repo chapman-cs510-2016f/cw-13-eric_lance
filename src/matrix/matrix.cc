@@ -5,6 +5,9 @@
 // include the header declarations
 #include <iostream>
 #include "matrix.h"
+#include <string>
+#include <sstream>
+#include <fstream>
 
 //*************
 //
@@ -111,6 +114,7 @@ unsigned int Matrix<T>::get_cols() const {
 
 
 
+
 //*********************
 //
 // OPERATOR OVERLOADING
@@ -185,6 +189,31 @@ void Matrix<T>::print() const
         }
         std::cout << std::endl;
     }
+}
+
+//*********************
+//
+// File Operations
+//
+//*********************
+
+// save the matrix out to a comma delimited file
+template<typename T>
+void Matrix<T>::save( std::string filename ) const
+{
+std::ofstream outfile;
+
+    outfile.open( filename.c_str() );
+    for (unsigned int i=0; i<this->get_rows(); i++)
+    {
+        for (unsigned int j=0; j<this->get_cols(); j++)
+        {
+            outfile << this->mat[i][j] << ",";
+        }
+        outfile << std::endl;
+    }
+    outfile.close();
+    
 }
 
 #endif // CW13_MATRIX_CPP_

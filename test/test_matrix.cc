@@ -40,5 +40,8 @@ int main() {
     std::cout << "Using the matrix's native print method to print the multiplied contents" << std::endl;
     mat5.print();
   
+    //  write matrix 5 out to a .csv file
+    mat5.save( "mat5.csv" );
+
     return 0;
 }
